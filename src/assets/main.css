@@ -12,8 +12,3 @@ html {
   background-color: gray;
   font-family: inter;
 }
-main {
-  display: flex;
-  flex-direction: column;
-  height: 1800px;
-}

@@ -1,15 +1,31 @@
-<script setup></script>
+<script setup>
+import { defineProps } from 'vue'
+
+defineProps({
+  time: {
+    type: String,
+    required: true
+  },
+  topic: {
+    type: String,
+    required: true
+  },
+  details: {
+    type: String,
+    required: true
+  }
+})
+</script>
 
 <template>
   <div class="cards">
     <div class="cardsText">
-      <h2>14.00 Uhr</h2>
-      <h3>Basisbeschäftigung Besuch</h3>
-      <h4>Interessierte für den zweiten Kurs werden uns besuchen</h4>
+      <h2>{{ time }}</h2>
+      <h3>{{ topic }}</h3>
+      <h4>{{ details }}</h4>
     </div>
   </div>
 </template>
-
 <style scoped>
 h2 {
   font-weight: 900;

@@ -1,9 +1,19 @@
-<script setup></script>
+<script>
+export default {
+  methods: {
+    currentDate() {
+      const current = new Date()
+      const date = `${current.getDate()}.${current.getMonth() + 1}.${current.getFullYear()}`
+      return date
+    }
+  }
+}
+</script>
 
 <template>
   <div class="header">
     <h3>Welcome to Opportunity</h3>
-    <h2>08.08.2021</h2>
+    <h2>{{ currentDate() }}</h2>
   </div>
 </template>
 
