@@ -2,8 +2,10 @@
 import HeaderMain from './components/HeaderMain.vue'
 import FooterMain from './components/FooterMain.vue'
 import CardsMain from './components/CardsMain.vue'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { useHead } from '@unhead/vue'
 
+const timeInterval = ref('')
 const sheet_id = import.meta.env.VITE_GOOGLE_SHEET_ID
 const api_token = import.meta.env.VITE_GOOGLE_API_KEY
 
@@ -21,6 +23,28 @@ async function fetchData() {
   }
 }
 fetchData()
+onMounted(() => {
+  timeInterval.value = setInterval(
+    () => {
+      fetchData()
+      getData()
+    },
+    1000 * 60 * 30
+  )
+})
+onBeforeUnmount(() => {
+  clearInterval(timeInterval.value)
+})
+
+useHead({
+  title: 'welcome-screen',
+  meta: [
+    {
+      name: 'description',
+      content: 'The welcome screen'
+    }
+  ]
+})
 </script>
 
 <template>
