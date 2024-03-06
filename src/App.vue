@@ -27,7 +27,6 @@ onMounted(() => {
   timeInterval.value = setInterval(
     () => {
       fetchData()
-      getData()
     },
     1000 * 60 * 30
   )

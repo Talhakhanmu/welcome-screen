@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps } from 'vue'
+import { computed } from 'vue'
 
 const props = defineProps({
   time: {
@@ -7,10 +8,6 @@ const props = defineProps({
     required: true
   },
   topic: {
-    type: String,
-    required: true
-  },
-  details: {
     type: String,
     required: true
   },
@@ -23,11 +20,11 @@ const props = defineProps({
     required: true
   },
   highlight: {
-    type: Boolean,
+    type: String,
     required: true
   }
 })
-const highlightBoolean = props.highlight === 'TRUE'
+const highlightBoolean = computed(() => props.highlight === 'TRUE')
 
 function calculateDaysLeft(targetDate) {
   const [day, month, year] = targetDate.split('.')
