@@ -1,6 +1,6 @@
 <script setup></script>
 <template>
-  <div class="footer">
+  <footer>
     <div class="footerBoxes">
       <div class="image"><img src="./images/STZH_SEB_Logo.png" alt="" /></div>
     </div>
@@ -10,11 +10,11 @@
     <div class="footerBoxes">
       <div class="image"><img src="./images/SAG_Logo_De.png" alt="" /></div>
     </div>
-  </div>
+  </footer>
 </template>
 
 <style scoped>
-.footer {
+footer {
   width: 1080px;
   height: 150px;
   display: flex;

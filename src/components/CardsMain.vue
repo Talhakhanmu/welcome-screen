@@ -1,7 +1,9 @@
 <script setup>
+// Importing necessary functions from Vue
 import { defineProps } from 'vue'
 import { computed } from 'vue'
 
+// Defining props for the component
 const props = defineProps({
   time: {
     type: String,
@@ -24,8 +26,11 @@ const props = defineProps({
     required: true
   }
 })
+
+// Computing a boolean value based on the 'highlight' prop
 const highlightBoolean = computed(() => props.highlight === 'TRUE')
 
+// Function to calculate the number of days left until a target date
 function calculateDaysLeft(targetDate) {
   const [day, month, year] = targetDate.split('.')
   const target = new Date(year, month - 1, day)
@@ -34,9 +39,12 @@ function calculateDaysLeft(targetDate) {
 
   return daysLeft
 }
-const daysLeft = calculateDaysLeft(props.date)
-let message = ''
 
+// Calculating the number of days left based on the 'date' prop
+const daysLeft = calculateDaysLeft(props.date)
+
+// Determining the message based on the number of days left
+let message = ''
 if (daysLeft > 0) {
   message = `${daysLeft} days left`
 } else if (daysLeft === 0) {
@@ -47,6 +55,7 @@ if (daysLeft > 0) {
 </script>
 
 <template>
+  <!-- Template part of the component -->
   <div v-if="daysLeft >= 0" :class="highlightBoolean ? 'highlight' : 'cards'">
     <div class="cardsText">
       <div class="dateNtime">
@@ -70,27 +79,28 @@ h2 {
   font-weight: 900;
   font-size: 28px;
   line-height: 30px;
-  color: rgb(0, 0, 0);
-  text-shadow: 0 0 10px rgba(153, 153, 153, 0.8);
+  color: #eb5e00;
 }
 h3 {
+  margin-top: 10px;
   font-weight: 900;
   font-size: 28px;
   line-height: 30px;
-  color: rgb(255, 255, 255);
+  color: #ffbfab;
 }
 h4 {
+  margin-top: 5px;
   font-size: 28px;
   font-weight: 500;
   line-height: 30px;
-  color: rgb(255, 255, 255);
+  color: #ffbfab;
 }
 .cards {
   width: 960px;
   height: 182px;
   background-color: #0f05a0;
   display: flex;
-  margin: 30px;
+  margin: 18px;
 }
 .cardsText {
   width: 755px;
@@ -100,8 +110,19 @@ h4 {
 .highlight {
   width: 960px;
   height: 182px;
-  background-color: #d10000;
+  background-color: #df0606;
   display: flex;
-  margin: 30px;
+  margin: 18px;
+}
+.highlight h2 {
+  color: #000000;
+}
+
+.highlight h3 {
+  color: white;
+}
+
+.highlight h4 {
+  color: #ffffff;
 }
 </style>

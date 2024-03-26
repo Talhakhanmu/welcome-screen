@@ -1,5 +1,7 @@
 <script>
 export default {
+  // Method to get the current date
+
   methods: {
     currentDate() {
       const current = new Date()
@@ -11,10 +13,10 @@ export default {
 </script>
 
 <template>
-  <div class="header">
+  <header>
     <h3>Welcome to Opportunity</h3>
     <h2>{{ currentDate() }}</h2>
-  </div>
+  </header>
 </template>
 
 <style scoped>
@@ -38,7 +40,7 @@ h3 {
   height: 75px;
   font-family: inter;
   font-size: 62px;
-  font-weight: 1500px;
+  font-weight: 1700px;
   line-height: 75px;
   letter-spacing: 0em;
   text-align: left;
@@ -46,8 +48,9 @@ h3 {
   padding-left: 50px;
   padding-top: 50px;
 }
-.header {
+header {
   width: 1080px;
   background-color: #e8eff4;
+  padding-bottom: 20px;
 }
 </style>
